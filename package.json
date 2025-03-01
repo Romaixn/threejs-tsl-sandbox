@@ -1,0 +1,21 @@
+{
+  "name": "threejs-tsl-sandbox",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "three": "^0.174.0",
+    "tweakpane": "^4.0.5"
+  }
+}
