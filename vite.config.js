@@ -12,5 +12,8 @@ export default defineConfig({
         sourcemap: true,
         emptyOutDir: true,
     },
+    server: {
+        host: true,
+    },
     base: "/"
 });
