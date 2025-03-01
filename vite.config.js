@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite';
+import threeUniformGui from 'tsl-uniform-ui-vite-plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [],
+    plugins: [threeUniformGui()],
     resolve: {
         alias: {
         },

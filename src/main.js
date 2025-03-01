@@ -1,6 +1,5 @@
 import * as THREE from 'three/webgpu';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { Pane } from 'tweakpane';
 import { sin, positionLocal, time, vec2, vec3, vec4, uv, uniform, color, fog, rangeFogFactor } from 'three/tsl';
 
 class App {
@@ -28,14 +27,8 @@ class App {
   }
 
   async #setupProject_() {
-    // Create debug pane
-    const pane = new Pane({
-      title: 'Settings',
-      expanded: true
-    });
-
     this.#setupThreejs_();
-    this.#setupBasicScene_(pane);
+    this.#setupBasicScene_();
   }
 
   #setupThreejs_() {
@@ -62,7 +55,7 @@ class App {
     this.#threejs_.setClearColor(this.#fogColor_.value);
   }
 
-  #setupBasicScene_(pane) {
+  #setupBasicScene_() {
     // Material
     const material = new THREE.MeshBasicNodeMaterial();
 
@@ -89,24 +82,6 @@ class App {
     // Mesh
     const mesh = new THREE.Mesh(new THREE.TorusKnotGeometry(1, 0.35, 128, 32), material);
     this.#scene_.add(mesh);
-
-    // Tweaks
-    const dummyFolder = pane.addFolder({ title: 'Dummy' });
-    dummyFolder.addBinding(timeFrequency, 'value', {
-      min: 0,
-      max: 5,
-      label: 'timeFrequency'
-    });
-    dummyFolder.addBinding(positionFrequency, 'value', {
-      min: 0,
-      max: 5,
-      label: 'positionFrequency'
-    });
-    dummyFolder.addBinding(intensityFrequency, 'value', {
-      min: 0,
-      max: 5,
-      label: 'intensityFrequency'
-    });
   }
 
   #onWindowResize_() {
